@@ -66,4 +66,4 @@ Contributions are welcome! If you'd like to contribute, please:
 * Monitoring
 
 ## License
-This project is licensed under the [MIT License](https://mit-license.org/).
+This project is licensed under the [MIT License](/LICENSE).
