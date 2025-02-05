@@ -23,15 +23,17 @@ Clone this repository into a subfolder of your web application project:
 > cd ./<your-webapp-project>/terraform
 ### Step 2: Configure terraform.tfvars
 Create a terraform.tfvars file in the root of the cloned repository with the following variables:
-#### Input Variables	             
-* aws_account	          Your AWS account ID.
-* aws_tofu_bucket	      Name of the S3 bucket for storing Terraform state files.
-* aws_name_tag	          Name tag for AWS resources (e.g., "webapp-prod").
-* domain	              Domain name for your web application (e.g., "app.example.com").
-* hosted_zone	          Route 53 hosted zone ID for the domain.
-* email	                  Email address for notifications (e.g., SSL certificate alerts).
-* aws_vpc_id	          ID of the VPC where the EC2 instance will be deployed.
-* aws_vpc_subnet_id       ID of the subnet within the VPC for the EC2 instance.
+#### Input Variables	
+| Name | Description |
+| --- | --- |             
+| aws_account | Your AWS account ID. |
+| aws_tofu_bucket | Name of the S3 bucket for storing Terraform state files |
+| aws_name_tag | Name tag for AWS resources (e.g., "webapp-prod") |
+| domain | Domain name for your web application (e.g., "app.example.com") |
+| hosted_zone |	Route 53 hosted zone ID for the domain |
+| email	| Email address for notifications (e.g., SSL certificate alerts) |
+| aws_vpc_id | ID of the VPC where the EC2 instance will be deployed |
+| aws_vpc_subnet_id | ID of the subnet within the VPC for the EC2 instance |
 ### Step 3: Initialize Terraform
 Initialize Terraform to download the required providers and modules:
 > terraform init
@@ -44,10 +46,12 @@ If the plan looks correct, apply the configuration:
 Once the Terraform configuration is applied, your EC2 instance will be provisioned, and a DNS record will be created in Route 53. You can access your web application using the domain specified in the terraform.tfvars file.
 #### Outputs Variable
 After applying the Terraform configuration, the following outputs will be displayed:
-* instance_id         Instance identifier
-* instance_public_ip  Public IP address (use for ssh)
-* repository_url      ECR Repository of your application docker
-* bucket_id           Bucket identifier
+| Name | Description |
+| --- | --- |  
+| instance_id | Instance identifier |
+| instance_public_ip | Public IP address (use for ssh) |
+| repository_url | ECR Repository of your application docker |
+| bucket_id | Bucket identifier |
 ## Ensure the AWS user or role running this Terraform configuration has the following permissions:
 * ec2:*
 * s3:*
