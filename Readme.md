@@ -18,9 +18,10 @@ Your-webapp-project should have a Dockerfile with the port 3000 exposed.
 ## Getting Started
 ### Step 1: Clone the Repository
 Clone this repository into a subfolder of your web application project:
-> git clone https://github.com/AgileByteIO/aws-single-ec2.git ./<your-webapp-project>/terraform
-
-> cd ./<your-webapp-project>/terraform
+```bash
+git clone https://github.com/AgileByteIO/aws-single-ec2.git ./<your-webapp-project>/terraform
+cd ./<your-webapp-project>/terraform
+```
 ### Step 2: Configure terraform.tfvars
 Create a terraform.tfvars file in the root of the cloned repository with the following variables:
 #### Input Variables	
@@ -35,13 +36,24 @@ Create a terraform.tfvars file in the root of the cloned repository with the fol
 | aws_vpc_id | ID of the VPC where the EC2 instance will be deployed |
 | aws_vpc_subnet_id | ID of the subnet within the VPC for the EC2 instance |
 ### Step 3: Initialize Terraform
-Initialize Terraform to download the required providers and modules:
-> terraform init
+```bash
+#Initialize Terraform to download the required providers and modules
+terraform init
+```
 ### Step 4: Review and Apply
-Review the execution plan:
-> terraform plan
-If the plan looks correct, apply the configuration:
->terraform apply
+```bash
+#Review the execution plan
+terraform plan
+```
+```bash
+#If the plan looks correct, apply the configuration
+terraform apply
+```
+#### Note!!!
+```bash
+#Deletes all compnents. Be careful of data loss.
+terraform destroy
+```
 ### Step 5: Access Your WebApp
 Once the Terraform configuration is applied, your EC2 instance will be provisioned, and a DNS record will be created in Route 53. You can access your web application using the domain specified in the terraform.tfvars file.
 #### Outputs Variable
