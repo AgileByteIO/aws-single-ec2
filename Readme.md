@@ -1,10 +1,17 @@
 # Terraform Configuration for WebApp EC2 Instance
-This Terraform configuration sets up a single EC2 instance to host a web application. It is designed to be simple, reusable, and easy to integrate into your existing web application project. The configuration provisions an EC2 instance, configures networking, and sets up DNS records using Route 53. The application is SSL protected.
+This Terraform configuration sets up a single EC2 instance to host a web application. It is designed to be simple, reusable, and easy to integrate into your existing web application project. The configuration provisions an EC2 instance, configures networking, and sets up DNS records using Route 53. The application will be SSL protected.
 ## Prerequisites
 Before using this Terraform configuration, ensure the following prerequisites are met:
 ### AWS CLI: Install and configure the AWS CLI with the necessary credentials and permissions.
 [Install AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 [Configure AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
+### Ensure the AWS user or role running this Terraform configuration has the following permissions:
+[Iam User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html)
+* ec2:*
+* s3:*
+* route53:*
+* kms: *
+[IAM User needs assined Public key](https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html)
 ### Terraform or OpenTofu: Install Terraform or OpenTofu on your local machine.
 [Install Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 [OpenTofu](https://opentofu.org/) (if using OpenTofu instead of Terraform)
@@ -64,11 +71,6 @@ After applying the Terraform configuration, the following outputs will be displa
 | instance_public_ip | Public IP address (use for ssh) |
 | repository_url | ECR Repository of your application docker |
 | bucket_id | Bucket identifier |
-## Ensure the AWS user or role running this Terraform configuration has the following permissions:
-* ec2:*
-* s3:*
-* route53:*
-* kms: *
 ## Contributing
 Contributions are welcome! If you'd like to contribute, please:
 * Fork the repository.
